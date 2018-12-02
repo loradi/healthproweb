@@ -28,7 +28,7 @@ function getall() {
     );
 } 
 function getid() {
-    alert("you clicked button with id: " + document.getElementById("id_patient").text);
+    //alert("you clicked button with id: " + document.getElementById("id_patient").text);
     $.ajax(
       {
 	    url: "http://finalpatient.herokuapp.com/patients/"+document.getElementById("id_patient").value,
@@ -51,6 +51,57 @@ function getid() {
         }
         }
     $( "#body_patients" ).html (text);
+       }
+       
+    );
+}
+function getallrecords() {
+    //alert("you clicked button with id: " + document.getElementById("btn_get_all").value);
+    $.ajax(
+      {
+	    url: "http://finalpatient.herokuapp.com/patients/records/",
+        action: "GET",
+	    context: document.body,
+        crossDomain:true
+       }).done(function(data) {
+        //alert("la cantidad de pacientes son:  "+data.length);
+
+      var text = "";
+        //text = text + "<div class='row'> <table border = \"2\"> <tr><td>Name: "+data[0].firstName+" </td><td>LastName : "+data[0].lastName+"</td></tr></table></div>"
+       
+        for(i=0; i<data.length; i++){
+        
+          text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].recordPatient+"</td><td>"+data[i].bloodPreasure+"</td><td>"+data[i].respirationRate+"</td><td>"+data[i].bloodOxigen+"</td><td>"+data[i].heartRate+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+        }
+        $( "#body_records" ).html (text);
+       }
+       
+    );
+} 
+function getidrecords() {
+    //alert("you clicked button with id: " + document.getElementById("id_patient").text);
+    $.ajax(
+      {
+	    url: "http://finalpatient.herokuapp.com/patients/"+document.getElementById("id_record").value+"/records",
+        action: "GET",
+	    context: document.body,
+        crossDomain:true
+       }).done(function(data) {
+
+        if(document.getElementById("id_record").text = "" ){
+        alert("PLEASE DIGIT ID NUMBER");
+      
+      }else{
+
+      var text = "";
+        //text = text + "<div class='row'> <table border = \"2\"> <tr><td>Name: "+data[0].firstName+" </td><td>LastName : "+data[0].lastName+"</td></tr></table></div>"
+       
+        for(i=0; i<data.length; i++){
+        
+          text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].recordPatient+"</td><td>"+data[i].bloodPreasure+"</td><td>"+data[i].respirationRate+"</td><td>"+data[i].bloodOxigen+"</td><td>"+data[i].heartRate+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+        }
+        }
+    $( "#body_records" ).html (text);
        }
        
     );
@@ -104,14 +155,14 @@ function getid() {
           <div class="row">
             <div class="banner-info">
               <div class="banner-logo text-center">
-                <img src="img/logo.png" class="img-responsive">
+                <img src="img/persona2.png" class="img-responsive">
               </div>
               <div class="banner-text text-center">
                 <h1 class="white">Welcome To Admin Console!!</h1>
                 <p>Patient Clinical Data management application for the health care providers</p>
               </div>
               <div class="overlay-detail text-center">
-                <a href="#service"><i class="fa fa-angle-down"></i></a>
+                <a href="#patients"><i class="fa fa-angle-down"></i></a>
               </div>
             </div>
           </div>
@@ -156,55 +207,35 @@ function getid() {
     <!--/ Patients-->
     <!--Records-->
   <section id="records" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-4">
-            <h2 class="ser-title">Our Service</h2>
-            <hr class="botm-line">
-            <p>we are a company dedicated to provide data management services, with a high emphasis on health systems, providing reliability and reliability in the disposition of data and its management</p>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <div class="service-info">
-              <div class="icon">
-                <i class="fa fa-stethoscope"></i>
-              </div>
-              <div class="icon-info">
-                <h4>24 Hour Support</h4>
-                <p>With more than 35 years of experience in the industry, our FREE, 24/7 Tech Support hotline is a trusted resource for thousands of customers just like you.</p>
-              </div>
-            </div>
-            <div class="service-info">
-              <div class="icon">
-                <i class="fa fa-ambulance"></i>
-              </div>
-              <div class="icon-info">
-                <h4>Emergency Services</h4>
-                <p>Managing and regulating the land ambulance services provided by upper tier municipalities and District Social Services Administration Board, as well as providing administrative, operational, and technical support of ambulance services;</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <div class="service-info">
-              <div class="icon">
-                <i class="fa fa-user-md"></i>
-              </div>
-              <div class="icon-info">
-                <h4>Medical Counseling</h4>
-                <p>A free medical advice service close and fast. It will advise and solve doubts</p>
-              </div>
-            </div>
-            <div class="service-info">
-              <div class="icon">
-                <i class="fa fa-medkit"></i>
-              </div>
-              <div class="icon-info">
-                <h4>Premium Healthcare</h4>
-                <p>We don’t compromise on quality, that’s why all our trainers are Paramedics or Nurses. Training over 50,000 people from a variety of industries every year. National corporate training provider servicing every State and Territory</p>
-              </div>
-            </div>
-          </div>
+    <div class="container">
+      <div class="row">
+        <button type="button"  class="btn-form" id="btn_create_record">CREATE RECORD +</button>
+        <button type="button"  class="btn-form" id="btn_get_all_records" onclick="getallrecords()" >GET ALL RECORDS</button> 
+        <input id="id_record" type="number" placeholder="Filter by ID"/>
+        <button type="button"  class="btn-form" id="btn_filter_record" onclick="getidrecords()" >FILTER ID</button> 
+      </div>
+      <div class="controls col-md-1"> 
+          
+      </div>
+      <div class="row">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Id Patient</th>
+                    <th scope="col">Title Record</th>
+                    <th scope="col">Blood Preasure</th>
+                    <th scope="col">Respiration Rate</th>
+                    <th scope="col">Blood Oxigen</th>
+                    <th scope="col">Heart Rate</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="body_records">
+                </tbody>
+              </table>
         </div>
       </div>
+    </div>
     </section>
     <!--/ Records-->
   <!--footer-->
