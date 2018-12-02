@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Health Pro goup 8 </title>
+  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- =======================================================
+    Application Name: HEALTH PRO
+    Final Project Patients Health Pro
+    Author: Group 8 MAPD712001
+  ======================================================= -->
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <!--banner-->
+  <section id="banner" class="banner">
+    <div class="bg-color">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+              <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li class=""><a href="login.html">Sing In</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">    
+            
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign Up</div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/accounts/login/">Register</a></div>
+                </div>  
+                <div class="panel-body" >
+                        <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
+                                
+    
+                            <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
+                            <div id="div_id_As" class="form-group required">
+                                <label for="id_As"  class="control-label col-md-4  requiredField">Profile<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                  <select id="profile">
+                                    <option value="nurse">Nurse</option>
+                                    <option value="doctor">Doctor</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div id="div_id_username" class="form-group required">
+                                <label for="id_username" class="control-label col-md-4  requiredField"> Username<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 ">
+                                    <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" name="username" placeholder="Choose your username" style="margin-bottom: 10px" type="text" required/>
+                                </div>
+                            </div>
+                            <div id="div_id_email" class="form-group required">
+                                <label for="id_email" class="control-label col-md-4  requiredField"> E-mail<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 ">
+                                    <input class="input-md emailinput form-control" id="id_email" name="email" placeholder="Your current email address" style="margin-bottom: 10px" type="email" required/>
+                                </div>     
+                            </div>
+                            <div id="div_id_password1" class="form-group required">
+                                <label for="id_password1" class="control-label col-md-4  requiredField">Password<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 "> 
+                                    <input class="input-md textinput textInput form-control" id="id_password1" name="password1" placeholder="Create a password" style="margin-bottom: 10px" type="password" required/>
+                                </div>
+                            </div>
+                            <div id="div_id_password2" class="form-group required">
+                                 <label for="id_password2" class="control-label col-md-4  requiredField"> Re:password<span class="asteriskField">*</span> </label>
+                                 <div class="controls col-md-8 ">
+                                    <input class="input-md textinput textInput form-control" id="id_password2" name="password2" placeholder="Confirm your password" style="margin-bottom: 10px" type="password" required/>
+                                </div>
+                            </div>
+                            <div id="div_id_name" class="form-group required"> 
+                                <label for="id_name" class="control-label col-md-4  requiredField"> full name<span class="asteriskField">*</span> </label> 
+                                <div class="controls col-md-8 "> 
+                                    <input class="input-md textinput textInput form-control" id="id_name" name="name" placeholder="Your Frist name and Last name" style="margin-bottom: 10px" type="text" required/>
+                                </div>
+                            </div>
+                            <div id="div_id_gender" class="form-group required">
+                                <label for="id_gender"  class="control-label col-md-4  requiredField"> Gender<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                     <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_1" value="M"  style="margin-bottom: 10px" >Male</label>
+                                     <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_2" value="F"  style="margin-bottom: 10px" >Female </label>
+                                </div>
+                            </div>
+                            <div id="div_id_number" class="form-group required">
+                                 <label for="id_number" class="control-label col-md-4  requiredField"> contact number<span class="asteriskField">*</span> </label>
+                                 <div class="controls col-md-8 ">
+                                     <input class="input-md textinput textInput form-control" id="id_number" name="number" placeholder="provide your number" style="margin-bottom: 10px" type="text" required/>
+                                </div> 
+                            </div> 
+                            <div class="form-group">
+                                <div class="controls col-md-offset-4 col-md-8 ">
+                                    <div id="div_id_terms" class="checkbox required">
+                                        <label for="id_terms" class=" requiredField">
+                                             <input class="input-ms checkboxinput" id="id_terms" name="terms" style="margin-bottom: 10px" type="checkbox" required/>
+                                             Agree with the terms and conditions
+                                        </label>
+                                    </div> 
+                                        
+                                </div>
+                            </div> 
+                            <div class="form-group"> 
+                                <div class="aab controls col-md-4 "></div>
+                                <div class="controls col-md-8 ">
+                                    <input type="submit" name="Signup" value="Register" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+                                    or <input onclick="location.href='login.html'" type="button" name="Signup" value="Sign In" class="btn btn btn-primary" id="button-id-signup" />
+                                </div>
+                            </div> 
+                </div>
+            </div>
+        </div> 
+    </div>
+    </div> 
+      </div>
+    </div>
+  </section>
+  <!--/ banner-->
+  <!--footer-->
+  <footer id="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">About Us</h4>
+            </div>
+            <div class="info-sec">
+              <p>The good doctor treats the disease; the great doctor treats the patient who has the disease.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Quick Links</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="quick-info">
+                <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
+                <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
+                <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Follow us</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="social-icon">
+                <li class="bglight-blue"> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                <li class="bgred"> <a href="https://plus.google.com/discover"><i class="fa fa-google-plus"></i></a></li>
+                <li class="bgdark-blue"> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                <li class="bglight-blue"> <a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            © Copyright Helath Pro. All Rights Reserved
+            <div class="credits">
+              Designed by group 8 Web Desing
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ footer-->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+</body>
+
+</html>

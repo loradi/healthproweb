@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+
+$('button').click(function(e){
+   $.ajax({
+     url: "https://prod.api.pvp.net/api/lol/eune/v1.1/summoner/by-name/netuetamundis?api_key=b05c2251-f659-4d24-8b5f-6b25a482b42a",
+     success: function(data){
+       $.each(data, function(key, val){
+            $("div").append("<b>" + key + "</b>");
+       })
+     }
+   })
+});
+</script>
+</head>
+
+<body>
+<button>Get Json Data</button>
+<div></div>
+</body>
+</html>

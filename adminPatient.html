@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+  <script>
+function getall() {
+    //alert("you clicked button with id: " + document.getElementById("btn_get_all").value);
+    $.ajax(
+      {
+	    url: "http://finalpatient.herokuapp.com/patients/",
+        action: "GET",
+	    context: document.body,
+        crossDomain:true
+       }).done(function(data) {
+        //alert("la cantidad de pacientes son:  "+data.length);
+
+      var text = "";
+        //text = text + "<div class='row'> <table border = \"2\"> <tr><td>Name: "+data[0].firstName+" </td><td>LastName : "+data[0].lastName+"</td></tr></table></div>"
+       
+        for(i=0; i<data.length; i++){
+        
+        text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].firstName+"</td><td>"+data[i].lastName+"</td><td>"+data[i].phoneNumber+"</td><td>"+data[i].address+"</td><td>"+data[i].dateBirthDay+"</td><td>"+data[i].department+"</td><td>"+data[i].doctorName+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+    }
+        $( "#body_patients" ).html (text);
+       }
+       
+    );
+} 
+function getid() {
+    alert("you clicked button with id: " + document.getElementById("id_patient").text);
+    $.ajax(
+      {
+	    url: "http://finalpatient.herokuapp.com/patients/"+document.getElementById("id_patient").value,
+        action: "GET",
+	    context: document.body,
+        crossDomain:true
+       }).done(function(data) {
+
+        if(document.getElementById("id_patient").text = "" ){
+        alert("PLEASE DIGIT ID NUMBER");
+      
+      }else{
+
+      var text = "";
+        //text = text + "<div class='row'> <table border = \"2\"> <tr><td>Name: "+data[0].firstName+" </td><td>LastName : "+data[0].lastName+"</td></tr></table></div>"
+       
+        for(i=0; i<data.length; i++){
+        
+          text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].firstName+"</td><td>"+data[i].lastName+"</td><td>"+data[i].phoneNumber+"</td><td>"+data[i].address+"</td><td>"+data[i].dateBirthDay+"</td><td>"+data[i].department+"</td><td>"+data[i].doctorName+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+        }
+        }
+    $( "#body_patients" ).html (text);
+       }
+       
+    );
+}
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Health Pro goup 8 </title>
+  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <!-- =======================================================
+    Application Name: HEALTH PRO
+    Final Project Patients Health Pro
+    Author: Group 8 MAPD712001
+  ======================================================= -->
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <!--banner-->
+  <section id="banner" class="banner">
+      <div class="bg-color">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="col-md-12">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+              </div>
+              <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#banner">Home</a></li>
+                  <li class=""><a href="#patients">Patients</a></li>
+                  <li class=""><a href="#records">Records</a></li>
+                  <li class=""><a href="index.html">Sing Out</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="container">
+          <div class="row">
+            <div class="banner-info">
+              <div class="banner-logo text-center">
+                <img src="img/logo.png" class="img-responsive">
+              </div>
+              <div class="banner-text text-center">
+                <h1 class="white">Welcome To Admin Console!!</h1>
+                <p>Patient Clinical Data management application for the health care providers</p>
+              </div>
+              <div class="overlay-detail text-center">
+                <a href="#service"><i class="fa fa-angle-down"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ banner-->
+    <!--Patients-->
+  <section id="patients" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <button type="button"  class="btn-form" id="btn_create_patient">CREATE PATIENT +</button>
+          <button type="button"  class="btn-form" id="btn_get_all_patients" onclick="getall()" >GET ALL PATIENTS</button> 
+          <input id="id_patient" type="number" placeholder="Filter by ID"/>
+          <button type="button"  class="btn-form" id="btn_filter_patient" onclick="getid()" >FILTER ID</button> 
+        </div>
+        <div class="controls col-md-1"> 
+            
+        </div>
+        <div class="row">
+              <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Id Patient</th>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Date Of BirthDay</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">Doctor Name</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="body_patients">
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ Patients-->
+    <!--Records-->
+  <section id="records" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <h2 class="ser-title">Our Service</h2>
+            <hr class="botm-line">
+            <p>we are a company dedicated to provide data management services, with a high emphasis on health systems, providing reliability and reliability in the disposition of data and its management</p>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="service-info">
+              <div class="icon">
+                <i class="fa fa-stethoscope"></i>
+              </div>
+              <div class="icon-info">
+                <h4>24 Hour Support</h4>
+                <p>With more than 35 years of experience in the industry, our FREE, 24/7 Tech Support hotline is a trusted resource for thousands of customers just like you.</p>
+              </div>
+            </div>
+            <div class="service-info">
+              <div class="icon">
+                <i class="fa fa-ambulance"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Emergency Services</h4>
+                <p>Managing and regulating the land ambulance services provided by upper tier municipalities and District Social Services Administration Board, as well as providing administrative, operational, and technical support of ambulance services;</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="service-info">
+              <div class="icon">
+                <i class="fa fa-user-md"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Medical Counseling</h4>
+                <p>A free medical advice service close and fast. It will advise and solve doubts</p>
+              </div>
+            </div>
+            <div class="service-info">
+              <div class="icon">
+                <i class="fa fa-medkit"></i>
+              </div>
+              <div class="icon-info">
+                <h4>Premium Healthcare</h4>
+                <p>We don’t compromise on quality, that’s why all our trainers are Paramedics or Nurses. Training over 50,000 people from a variety of industries every year. National corporate training provider servicing every State and Territory</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ Records-->
+  <!--footer-->
+  <footer id="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">About Us</h4>
+            </div>
+            <div class="info-sec">
+              <p>The good doctor treats the disease; the great doctor treats the patient who has the disease.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Quick Links</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="quick-info">
+                <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
+                <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
+                <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Follow us</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="social-icon">
+                <li class="bglight-blue"> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                <li class="bgred"> <a href="https://plus.google.com/discover"><i class="fa fa-google-plus"></i></a></li>
+                <li class="bgdark-blue"> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                <li class="bglight-blue"> <a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            © Copyright Helath Pro. All Rights Reserved
+            <div class="credits">
+              Designed by group 8 Web Desing
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ footer-->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+</body>
+
+</html>
