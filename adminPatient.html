@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script /*src="~/Scripts/jquery-1.10.2.js"*/></script>
   <script>
 function getall() {
     //alert("you clicked button with id: " + document.getElementById("btn_get_all").value);
@@ -20,7 +20,7 @@ function getall() {
        
         for(i=0; i<data.length; i++){
         
-        text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].firstName+"</td><td>"+data[i].lastName+"</td><td>"+data[i].phoneNumber+"</td><td>"+data[i].address+"</td><td>"+data[i].dateBirthDay+"</td><td>"+data[i].department+"</td><td>"+data[i].doctorName+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+        text = text + "<tr><td id=\""+data[i].idpatients+"\">"+data[i].idpatients+"</td><td id=\""+data[i].idpatients+"_firstName_edit\" value= \""+data[i].firstName+"\">"+data[i].firstName+"</td><td id=\""+data[i].idpatients+"_lastName_edit\" value= \""+data[i].lastName+"\">"+data[i].lastName+"</td><td id=\""+data[i].idpatients+"_phoneNumber_edit\" value= \""+data[i].phoneNumber+"\">"+data[i].phoneNumber+"</td><td id=\""+data[i].idpatients+"_address_edit\" value= \""+data[i].address+"\">"+data[i].address+"</td><td id=\""+data[i].idpatients+"_dateBirthDay_edit\" value= \""+data[i].dateBirthDay+"\">"+data[i].dateBirthDay+"</td><td id=\""+data[i].idpatients+"_department_edit\" value= \""+data[i].department+"\">"+data[i].department+"</td><td id=\""+data[i].idpatients+"_doctorName_edit\" value= \""+data[i].doctorName+"\">"+data[i].doctorName+"</td><td onclick=\"openeditpatientform(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/edit.png\"></td><td onclick=\"openFormRecord(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/add.png\"></td><td onclick=\"deletepatient(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/delete1.png\"></td></tr>"
     }
         $( "#body_patients" ).html (text);
        }
@@ -47,7 +47,7 @@ function getid() {
        
         for(i=0; i<data.length; i++){
         
-          text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].firstName+"</td><td>"+data[i].lastName+"</td><td>"+data[i].phoneNumber+"</td><td>"+data[i].address+"</td><td>"+data[i].dateBirthDay+"</td><td>"+data[i].department+"</td><td>"+data[i].doctorName+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+          text = text + "<tr><td id=\""+data[i].idpatients+"\">"+data[i].idpatients+"</td><td id=\""+data[i].idpatients+"_firstName_edit\" value= \""+data[i].firstName+"\">"+data[i].firstName+"</td><td id=\""+data[i].idpatients+"_lastName_edit\" value= \""+data[i].lastName+"\">"+data[i].lastName+"</td><td id=\""+data[i].idpatients+"_phoneNumber_edit\" value= \""+data[i].phoneNumber+"\">"+data[i].phoneNumber+"</td><td id=\""+data[i].idpatients+"_address_edit\" value= \""+data[i].address+"\">"+data[i].address+"</td><td id=\""+data[i].idpatients+"_dateBirthDay_edit\" value= \""+data[i].dateBirthDay+"\">"+data[i].dateBirthDay+"</td><td id=\""+data[i].idpatients+"_department_edit\" value= \""+data[i].department+"\">"+data[i].department+"</td><td id=\""+data[i].idpatients+"_doctorName_edit\" value= \""+data[i].doctorName+"\">"+data[i].doctorName+"</td><td onclick=\"openeditpatientform(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/edit.png\"></td><td onclick=\"openFormRecord(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/add.png\"></td><td onclick=\"deletepatient(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/delete1.png\"></td></tr>"
         }
         }
     $( "#body_patients" ).html (text);
@@ -71,7 +71,7 @@ function getallrecords() {
        
         for(i=0; i<data.length; i++){
         
-          text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].recordPatient+"</td><td>"+data[i].bloodPreasure+"</td><td>"+data[i].respirationRate+"</td><td>"+data[i].bloodOxigen+"</td><td>"+data[i].heartRate+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+          text = text + "<tr><td id=\"td_idpatients"+data[i].idpatients+"\">"+data[i].idpatients+"</td><td>"+data[i].recordPatient+"</td><td>"+data[i].bloodPreasure+"</td><td>"+data[i].respirationRate+"</td><td>"+data[i].bloodOxigen+"</td><td>"+data[i].heartRate+"</td><td onclick=\"openeditpatientrecord(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/edit.png\"></td><td onclick=\"deleterecord(this)\" id=\""+data[i].idpatients+"\" ><img src=\"img/delete1.png\"></td></tr>"
         }
         $( "#body_records" ).html (text);
        }
@@ -98,7 +98,7 @@ function getidrecords() {
        
         for(i=0; i<data.length; i++){
         
-          text = text + "<tr><td>"+data[i].idpatients+"</td><td>"+data[i].recordPatient+"</td><td>"+data[i].bloodPreasure+"</td><td>"+data[i].respirationRate+"</td><td>"+data[i].bloodOxigen+"</td><td>"+data[i].heartRate+"</td><td><button type=\"button\"  class=\"btn-danger\" id=\"btn_delete_patient\">Delete</button></td></tr>"
+          text = text + "<tr><td id=\"td_idpatients"+data[i].idpatients+"\">"+data[i].idpatients+"</td><td>"+data[i].recordPatient+"</td><td>"+data[i].bloodPreasure+"</td><td>"+data[i].respirationRate+"</td><td>"+data[i].bloodOxigen+"</td><td>"+data[i].heartRate+"</td><td onclick=\"openeditpatientrecord(this)\" id=\""+data[i].idpatients+"\"><img src=\"img/edit.png\"></td><td onclick=\"deleterecord(this)\" id=\""+data[i].idpatients+"\" ><img src=\"img/delete1.png\"></td></tr>"
         }
         }
     $( "#body_records" ).html (text);
@@ -106,6 +106,250 @@ function getidrecords() {
        
     );
 }
+
+//open pop up create 
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+//close pop up create 
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+//open pop up record 
+function openFormRecord(rec) {
+    let id = rec.id;
+    //alert(id);
+    document.getElementById("formcreaterecord").style.display = "block";
+    document.getElementById("create_form_idrecordPatient").value = id;
+}
+//close pop up create 
+function closeFormRecord() {
+  //alert("esta es una prueba");
+    document.getElementById("formcreaterecord").style.display = "none";
+}
+//open pop up editpatient 
+function openeditpatientform(rec) {
+    let id = rec.id;
+                    document.getElementById("edit_form_idpatient").value = id;
+
+
+    $.ajax(
+      {
+	    url: "http://finalpatient.herokuapp.com/patients/"+id,
+        action: "GET",
+	    context: document.body,
+        crossDomain:true
+       }).done(function(data) {
+      document.getElementById("edit_form_firstName").value = data[0].firstName;
+      document.getElementById("edit_form_lastName").value = data[0].lastName;
+      document.getElementById("edit_form_phoneNumber").value = data[0].phoneNumber;
+      document.getElementById("edit_form_address").value = data[0].address;
+      document.getElementById("edit_form_dateBirthDay").value = data[0].dateBirthDay;
+      document.getElementById("edit_form_department").value = data[0].department;
+      document.getElementById("edit_form_doctorName").value = data[0].doctorName;
+      document.getElementById("formeditpatient").style.display = "block";
+       }
+       
+    );
+}
+//close pop up editpatient 
+function closepatientform() {
+  //alert("esta es una prueba");
+    document.getElementById("formeditpatient").style.display = "none";
+}
+//open pop up editrecord 
+function openeditpatientrecord(rec) {
+    let id = rec.id;
+                    document.getElementById("edit_form_idrecordPatient").value = id;
+
+
+    $.ajax(
+      {
+	    url: "http://finalpatient.herokuapp.com/patients/"+id+"/records",
+        action: "GET",
+	    context: document.body,
+        crossDomain:true
+       }).done(function(data) {
+
+      var text = "";
+      document.getElementById("edit_form_recordPatient").value = data[0].recordPatient;
+      document.getElementById("edit_form_bloodPreasure").value = data[0].bloodPreasure;
+      document.getElementById("edit_form_respirationRate").value = data[0].respirationRate;
+      document.getElementById("edit_form_bloodOxigen").value = data[0].bloodOxigen;
+      document.getElementById("edit_form_heartRate").value = data[0].heartRate;
+      document.getElementById("formeditrecord").style.display = "block";
+       }
+       
+    );
+}
+
+//close pop up editrecord 
+function closeeditrecordform() {
+  //alert("esta es una prueba");
+    document.getElementById("formeditrecord").style.display = "none";
+}
+//open pop up create patient
+function createpatient() {
+                    var firstName = document.getElementById("form_firstName").value;
+                    var lastName = document.getElementById("form_lastName").value;
+                    var phoneNumber = document.getElementById("form_phoneNumber").value;
+                    var address = document.getElementById("form_address").value;
+                    var dateBirthDay = document.getElementById("form_dateBirthDay").value;
+                    var department = document.getElementById("form_department").value;
+                    var doctorName = document.getElementById("form_doctorName").value;
+                    //var body = "{\"idusers\":\"\",\"profile\":\""+profile+" \",\"username\":\""+username+"\", \"password\":\""+password+" \",\"fullname\":\""+fullname+"\", \"gender\":\""+gender+"\",\"contactnumber\":\""+contactnumber+"\"}";
+                
+    //alert("you clicked button with id: " + document.getElementById("btn_create_form").value);
+    $.post("https://finalpatient.herokuapp.com/patients/",
+		{
+                                        idpatients: "",
+                                        firstName: ""+firstName+"",
+                                        lastName: ""+lastName+"",
+                                        phoneNumber: ""+phoneNumber+"",
+                                        address: ""+address+"",
+                                        dateBirthDay: ""+dateBirthDay+"",
+                                        department: ""+department+"",
+                                        doctorName: ""+doctorName+"",
+                                    },
+        function(data,status){
+            alert("your patient was created  : \nStatus: " + status);
+        });
+}
+
+function createrecord() {
+  let id = document.getElementById("create_form_idrecordPatient").value;
+  //alert("ENTRO AL CREATE RECORD: "+id);
+                    var recordPatient = document.getElementById("create_form_recordPatient").value;
+                    var bloodPreasure = document.getElementById("create_form_bloodPreasure").value;
+                    var respirationRate = document.getElementById("create_form_respirationRate").value;
+                    var bloodOxigen = document.getElementById("create_form_bloodOxigen").value;
+                    var heartRate = document.getElementById("create_form_heartRate").value;
+                    //var body = "{\"idusers\":\"\",\"profile\":\""+profile+" \",\"username\":\""+username+"\", \"password\":\""+password+" \",\"fullname\":\""+fullname+"\", \"gender\":\""+gender+"\",\"contactnumber\":\""+contactnumber+"\"}";
+                
+    //alert("you clicked button with id: " + document.getElementById("btn_create_form").value);
+    $.post("https://finalpatient.herokuapp.com/patients/"+id+"/records",
+		{
+                                        recordPatient: ""+recordPatient+"",
+                                        bloodPreasure: ""+bloodPreasure+"",
+                                        respirationRate: ""+respirationRate+"",
+                                        bloodOxigen: ""+bloodOxigen+"",
+                                        heartRate: ""+heartRate+"",
+                                    },
+        function(data,status){
+            alert("your record patient was created  : \nStatus: " + status);
+            //window.location="adminPatient.html";
+        });
+}
+function deleterecord(del){
+  let id = del.id;
+  var txt;
+  if (confirm("are you sure to delete ? !")) {
+    //alert("You pressed OK!");
+    $.ajax({  
+                     url: "https://finalpatient.herokuapp.com/patients/"+id+"/records",  
+                     type: 'DELETE',  
+                     dataType: 'json',    
+                     success: function (extStatus, xhr) {  
+                         alert("The record for the patient with Id Patient: "+id+" was deleted");
+                     },  
+                     error: function (xhr, textStatus, errorThrown) {  
+                         console.log('Error in Operation');  
+                     }  
+                 });
+  } else {
+    console.log("you pressed cancel ");
+  }
+
+  //alert("you gonna delete this patient "+id+" este es el valor del id: "+document.getElementById("record_idpatients"+id+""));
+}
+function deletepatient(del_patient){
+  let id = del_patient.id;
+  var txt;
+  if (confirm("are you sure to delete ? !")) {
+    //alert("You pressed OK!");
+    $.ajax({  
+                     url: "https://finalpatient.herokuapp.com/patients/"+id,  
+                     type: 'DELETE',  
+                     dataType: 'json',    
+                     success: function (extStatus, xhr) {  
+                         alert("The patient with Id Patient: "+id+" was deleted");
+                     },  
+                     error: function (xhr, textStatus, errorThrown) {  
+                         console.log('Error in Operation');  
+                     }  
+                 });
+  } else {
+    console.log("you pressed cancel ");
+  }
+
+  //alert("you gonna delete this patient "+id+" este es el valor del id: "+document.getElementById("record_idpatients"+id+""));
+}
+
+function editpatient() {
+  let id = document.getElementById("edit_form_idpatient").value;
+  //alert("ENTRO AL CREATE RECORD: "+id);
+                        var firstName = document.getElementById("edit_form_firstName").value;
+                        var lastName = document.getElementById("edit_form_lastName").value;
+                          var phoneNumber = document.getElementById("edit_form_phoneNumber").value;
+                          var address = document.getElementById("edit_form_address").value;
+                          var dateBirthDay = document.getElementById("edit_form_dateBirthDay").value;
+                          var department = document.getElementById("edit_form_department").value;
+                          var doctorName = document.getElementById("edit_form_doctorName").value;
+                    //var body = "{\"idusers\":\"\",\"profile\":\""+profile+" \",\"username\":\""+username+"\", \"password\":\""+password+" \",\"fullname\":\""+fullname+"\", \"gender\":\""+gender+"\",\"contactnumber\":\""+contactnumber+"\"}";
+                
+    //alert("you clicked button with id: " + document.getElementById("btn_create_form").value);
+    $.ajax({  
+                     url: "https://finalpatient.herokuapp.com/patients/"+id,  
+                     type: 'PUT',  
+                     dataType: 'json',
+                     data: {
+                                        firstName: ""+firstName+"",
+                                        lastName: ""+lastName+"",
+                                        phoneNumber: ""+phoneNumber+"",
+                                        address: ""+address+"",
+                                        dateBirthDay: ""+dateBirthDay+"",
+                                        department: ""+department+"",
+                                        doctorName: ""+doctorName+"",
+                                    },    
+                     success: function (extStatus, xhr) {  
+                         alert("The patient with Id Patient: "+id+" was updated");
+                         //window.location="adminPatient.html";
+                     },  
+                     error: function (xhr, textStatus, errorThrown) {  
+                         console.log('Error in Operation');  
+                     }  
+                 });
+}
+
+function editerecord() {
+  let id = document.getElementById("edit_form_idrecordPatient").value;;
+  //alert("ENTRO AL CREATE RECORD: "+id);
+                    var recordPatient = document.getElementById("edit_form_recordPatient").value;
+                    var bloodPreasure = document.getElementById("edit_form_bloodPreasure").value;
+                    var respirationRate = document.getElementById("edit_form_respirationRate").value;
+                    var bloodOxigen = document.getElementById("edit_form_bloodOxigen").value;
+                    var heartRate = document.getElementById("edit_form_heartRate").value;
+    $.ajax({  
+                     url: "https://finalpatient.herokuapp.com/patients/"+id+"/records",  
+                     type: 'PUT',  
+                     dataType: 'json',
+                     data: {
+                                        recordPatient: ""+recordPatient+"",
+                                        bloodPreasure: ""+bloodPreasure+"",
+                                        respirationRate: ""+respirationRate+"",
+                                        bloodOxigen: ""+bloodOxigen+"",
+                                        heartRate: ""+heartRate+"",
+                                    },    
+                     success: function (extStatus, xhr) {  
+                         alert("The record from patient with Id Patient: "+id+" was updated");
+                         //window.location="adminPatient.html";
+                     },  
+                     error: function (xhr, textStatus, errorThrown) {  
+                         console.log('Error in Operation');  
+                     }  
+                 });
+}
+
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -174,9 +418,9 @@ function getidrecords() {
   <section id="patients" class="section-padding">
       <div class="container">
         <div class="row">
-          <button type="button"  class="btn-form" id="btn_create_patient">CREATE PATIENT +</button>
+          <button type="button"  class="open-button" id="btn_create_patient" onclick="openForm()">CREATE PATIENT +</button>
           <button type="button"  class="btn-form" id="btn_get_all_patients" onclick="getall()" >GET ALL PATIENTS</button> 
-          <input id="id_patient" type="number" placeholder="Filter by ID"/>
+          <input id="id_patient" type="number" placeholder="Filter by ID" style="border: 0"/>
           <button type="button"  class="btn-form" id="btn_filter_patient" onclick="getid()" >FILTER ID</button> 
         </div>
         <div class="controls col-md-1"> 
@@ -209,7 +453,6 @@ function getidrecords() {
   <section id="records" class="section-padding">
     <div class="container">
       <div class="row">
-        <button type="button"  class="btn-form" id="btn_create_record">CREATE RECORD +</button>
         <button type="button"  class="btn-form" id="btn_get_all_records" onclick="getallrecords()" >GET ALL RECORDS</button> 
         <input id="id_record" type="number" placeholder="Filter by ID"/>
         <button type="button"  class="btn-form" id="btn_filter_record" onclick="getidrecords()" >FILTER ID</button> 
@@ -238,6 +481,69 @@ function getidrecords() {
     </div>
     </section>
     <!--/ Records-->
+      <!--form-->
+      <div class="form-popup" id="myForm">
+        <div class="form-container">
+          <h1>Patient</h1>
+          <input type="text" placeholder="Enter First Name" name="nform_firstName" required id="form_firstName">
+          <input type="text" placeholder="Enter Last Name" name="nform_lastName" required id="form_lastName">
+          <input type="text" placeholder="Enter Address" name="nform_address" required id="form_address">
+          <input type="text" placeholder="Enter Hospital department" name="nform_department" required id="form_department">
+          <input type="date" placeholder="Enter Date BirthDay" name="nform_dateBirthDay" required id="form_dateBirthDay">
+          <input type="text" placeholder="Enter Doctor Name" name="nform_doctorName" required id="form_doctorName">
+          <input type="number" placeholder="Enter Phone Number" name="nform_phoneNumber" required id="form_phoneNumber">
+          <button type="submit" class="btn" onclick="createpatient()" id="btn_create_form">Create</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </div>
+      </div>
+  <!--/ form-->
+        <!--editeform-->
+        <div class="form-popup" id="formeditpatient">
+          <div class="form-container">
+            <h1>Edit Patient</h1>
+            <input type="text" required id="edit_form_idpatient">
+            <input type="text" name="nform_firstName" required id="edit_form_firstName">
+            <input type="text" name="nform_lastName" required id="edit_form_lastName">
+            <input type="text" name="nform_address" required id="edit_form_address">
+            <input type="text" name="nform_department" required id="edit_form_department">
+            <input type="date" name="nform_dateBirthDay" required id="edit_form_dateBirthDay">
+            <input type="text" name="nform_doctorName" required id="edit_form_doctorName">
+            <input type="number" name="nform_phoneNumber" required id="edit_form_phoneNumber">
+            <button type="submit" class="btn" onclick="editpatient()" id="btn_edit_patient_form" value="">Update</button>
+            <button type="button" class="btn cancel" onclick="closepatientform()">Cancel</button>
+          </div>
+        </div>
+    <!--/ editeform-->
+        <!--formcreaterecord-->
+        <div class="form-popup" id="formcreaterecord">
+          <div class="form-container">
+            <h1>Record</h1>
+            <input type="text" required id="create_form_idrecordPatient">
+            <input type="text" placeholder="Enter Title Record" name="cform_recordPatient" required id="create_form_recordPatient">
+            <input type="text" placeholder="Enter Blood Preasure" name="cform_bloodPreasure" required id="create_form_bloodPreasure">
+            <input type="text" placeholder="Enter Respiration Rate" name="cform_respirationRate" required id="create_form_respirationRate">
+            <input type="text" placeholder="Enter Blood Oxigen" name="cform_bloodOxigen" required id="create_form_bloodOxigen">
+            <input type="text" placeholder="Enter Heart Rate" name="cform_heartRate" required id="create_form_heartRate">
+            <button type="submit" class="btn" onclick="createrecord()" id="btn_create_formrecord">Create</button>
+            <button type="button" class="btn cancel" onclick="closeFormRecord()">Cancel</button>
+          </div>
+        </div>
+    <!--/ formcreaterecord-->
+    <!--formeditrecord-->
+            <div class="form-popup" id="formeditrecord">
+              <div class="form-container">
+                <h1>Edit Record</h1>
+                <input type="text" required id="edit_form_idrecordPatient">
+                <input type="text" required id="edit_form_recordPatient">
+                <input type="text" required id="edit_form_bloodPreasure">
+                <input type="text" required id="edit_form_respirationRate">
+                <input type="text" required id="edit_form_bloodOxigen">
+                <input type="text" required id="edit_form_heartRate">
+                <button type="submit" class="btn" onclick="editerecord()" id="btn_edit_formrecord">Update</button>
+                <button type="button" class="btn cancel" onclick="closeeditrecordform()">Cancel</button>
+              </div>
+            </div>
+    <!--/ formeditrecord-->
   <!--footer-->
   <footer id="footer">
     <div class="top-footer">
